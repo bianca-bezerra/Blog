@@ -18,8 +18,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="min-h-screen">
-        <div className="flex flex-col h-full min-h-screen w-screen justify-between pl-52 pr-52">
+      <body className={inter.className}>
+        <div className="container">
           <Navbar />
           {children}
           <Footer />
