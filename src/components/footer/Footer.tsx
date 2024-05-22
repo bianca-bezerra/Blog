@@ -2,8 +2,8 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="bg-purple-blue h-32 w-full">
-      <h1 className="font-bold">This is a foor</h1>
+    <div className="bg-purple-blue h-32 w-full content-end pb-10">
+      <h1 className="opacity-50 text-white">Bianca Bezerra @ All rights reserved</h1>
     </div>
   );
 };

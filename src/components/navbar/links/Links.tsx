@@ -4,11 +4,12 @@ import Link from "next/link";
 import React, { useState } from "react";
 import NavLink from "./NavLink";
 import { Button } from "@/components/button/button";
+import Image from "next/image";
 
 const links = [
   {
     title: "Homepage",
-    url: "/"
+    url: "/",
   },
   {
     title: "About",
@@ -25,12 +26,12 @@ const links = [
 ];
 
 const Links = () => {
-  const session = false;
+  const session = true;
   const isAdmin = true;
   const [isOpen, setOpen] = useState(false);
 
   return (
-    <div className="flex flex-row">
+    <div className="flex flex-row items-center content-center justify-center">
       <div className="flex gap-10 max-md:hidden">
         {links.map((link) => (
           <NavLink link={link} />
@@ -38,23 +39,30 @@ const Links = () => {
         {session ? (
           <div className="flex flex-row gap-3">
             {isAdmin && <NavLink link={{ title: "Admin", url: "/admin" }} />}
-            <Button className="text-base bg-white text-blue-950 p-3">
+            <Button className="text-base bg-white text-blue2 p-3 hover:text-white">
               Logout
             </Button>
           </div>
         ) : (
           <>
-            {/* <Button className="text-base bg-transparent shadow-sm shadow-black">
-            Login
-          </Button>*/}
             <NavLink link={{ title: "Login", url: "/login" }} />
           </>
         )}
       </div>
-      <Button className="md:invisible" onClick={() => setOpen((prev) => !prev)}>Menu</Button>
+      <Button
+        className="bg-transparent hover:bg-transparent md:hidden p-0"
+        onClick={() => setOpen((prev) => !prev)}
+      >
+        <Image
+          src="/icons8-cardápio.svg"
+          height={30}
+          width={30}
+          alt="cardapio"
+        />
+      </Button>
       {isOpen && (
-        <div className="flex absolute top-24 right-0 w-1/2 h-[calc(100vh-100px)] flex-col items-center content-center gap-10">
-          {links.map((link) => ( 
+        <div className="flex w-fit absolute top-24 right-0 pr-5 flex-col items-center content-center gap-10 md:hidden">
+          {links.map((link) => (
             <NavLink link={link} />
           ))}
         </div>

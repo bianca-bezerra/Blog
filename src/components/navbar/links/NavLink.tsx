@@ -18,7 +18,7 @@ export default function Navlink({ link }: NavlinkProps) {
       <Link href={link.url}>
         <Button
           className={`text-base rounded-md ${
-            pathName === link.url ? "bg-white text-current" : "bg-transparent"
+            pathName === link.url ? "bg-white text-current hover:text-white" : "bg-transparent"
           }`}
         >
           {link.title}

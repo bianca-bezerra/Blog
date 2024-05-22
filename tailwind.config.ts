@@ -15,14 +15,15 @@ const config = {
       padding: "2rem",
       screens: {
         "2xl": "1400px",
-        "sm": "640px",
-        "md": "768px",
-       "lg": "1024px",
-        "xl": "1280px",
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1280px",
       },
     },
     extend: {
       colors: {
+        blue2: "#0B0B21",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -75,6 +76,10 @@ const config = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+      },
+      fontWeight: {
+        s: "600",
+        b: "800"
       },
     },
   },
