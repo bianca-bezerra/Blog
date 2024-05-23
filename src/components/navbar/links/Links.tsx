@@ -33,8 +33,8 @@ const Links = () => {
   return (
     <div className="flex flex-row items-center content-center justify-center">
       <div className="flex gap-10 max-md:hidden">
-        {links.map((link) => (
-          <NavLink link={link} />
+        {links.map((link,index) => (
+          <NavLink link={link} key={index} />
         ))}
         {session ? (
           <div className="flex flex-row gap-3">

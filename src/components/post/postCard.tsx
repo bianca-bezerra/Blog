@@ -5,32 +5,38 @@ import Link from "next/link";
 
 interface postProps {
   post: {
-    photo_url: string;
-    title: string;
-    description: string;
-    date: string;
-    link: string;
+    title: string,
+    body: string,
+    id: string
   };
 }
 
 function PostCard({ post }: postProps) {
   return (
-    <Card className="bg-transparent border-hidden text-white p-0 flex flex-col gap-5 h-auto">
-
-      <CardHeader className="flex flex-row p-0 items-center space-y-0">
-        <Image src={post.photo_url} height={300} width={300} alt="photo" />
-        <h1 className="rotate-90">{post.date}</h1>
+    <Card className="bg-transparent border-hidden text-white p-0 flex flex-col gap-5 w-1/4">
+      <CardHeader className="flex flex-row p-0 items-center gap-10">
+        <Image
+          src="/winding-tree-towers-over-landscape.jpg"
+          height={300}
+          width={300}
+          alt="photo"
+        />
       </CardHeader>
 
       <CardContent className="p-0 flex flex-col gap-3">
+        <h1 className="w-full">May 8</h1>
         <h1 className="font-s text-2xl">{post.title}</h1>
-        <p>{post.description}</p>
+        <p >{post.body}</p>
       </CardContent>
 
-      <CardFooter className="p-0">
-        <Link className="font-b" href={post.link}>READ MORE</Link>
+      <CardFooter className="p-0 justify-end">
+        <Link
+          className="font-b"
+          href={`/blog/${post.id}`}
+        >
+          READ MORE
+        </Link>
       </CardFooter>
-
     </Card>
   );
 }

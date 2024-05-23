@@ -1,7 +1,18 @@
+'use client'
 import { Button } from "@/components/button/button";
 import Image from "next/image";
+import { addMensage } from "../actions";
+import { useFormState, useFormStatus } from "react-dom";
+
+const initialState = {
+  mensage: ""
+}
 
 const ContactPage = () => {
+
+  const { pending } = useFormStatus();
+  const [state, formAction] = useFormState(addMensage, initialState);
+
   return (
     // Div da pagina inteira
     <div className="flex flex-row gap-7 pt-9">
@@ -17,7 +28,7 @@ const ContactPage = () => {
         </h1>
 
         {/* Formulario */}
-        <form className="flex flex-col gap-5" action="">
+        <form className="flex flex-col gap-5" action={addMensage}>
           {/* Div de cada campo */}
           <div className="flex flex-col">
             <label className="text-white pb-2 font-semibold">Name</label>
@@ -25,6 +36,7 @@ const ContactPage = () => {
               className="rounded-md p-2 bg-slate-700"
               type="text"
               placeholder="Type your name"
+              name="name"
             />
           </div>
           <div className="flex flex-col">
@@ -46,14 +58,14 @@ const ContactPage = () => {
             />
           </div>
           <div className="flex flex-col">
-            <label className="text-white pb-2 font-semibold">Mensage</label>
+            <label className="text-white pb-2 font-semibold">Mensage</label> 
             <textarea
               className="rounded-md p-2 h-full min-h-40 max-h-60 bg-slate-700"
               name="mensage"
-              id=""
               placeholder="Mensage"
               maxLength={200}
             ></textarea>
+            <button type="submit" disabled={pending} className="text-white">click me</button>
           </div>
           <Button className="font-s">Send</Button>
         </form>
