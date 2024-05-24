@@ -76,4 +76,5 @@ const CardFooter = React.forwardRef<
 ))
 CardFooter.displayName = "CardFooter"
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }

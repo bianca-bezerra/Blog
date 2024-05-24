@@ -1,18 +1,8 @@
-'use client'
-import { Button } from "@/components/button/button";
 import Image from "next/image";
 import { addMensage } from "../actions";
-import { useFormState, useFormStatus } from "react-dom";
-
-const initialState = {
-  mensage: ""
-}
+import { Button } from "@/components/button/button";
 
 const ContactPage = () => {
-
-  const { pending } = useFormStatus();
-  const [state, formAction] = useFormState(addMensage, initialState);
-
   return (
     // Div da pagina inteira
     <div className="flex flex-row gap-7 pt-9">
@@ -58,16 +48,16 @@ const ContactPage = () => {
             />
           </div>
           <div className="flex flex-col">
-            <label className="text-white pb-2 font-semibold">Mensage</label> 
+            <label className="text-white pb-2 font-semibold">Mensage</label>
             <textarea
               className="rounded-md p-2 h-full min-h-40 max-h-60 bg-slate-700"
               name="mensage"
               placeholder="Mensage"
               maxLength={200}
             ></textarea>
-            <button type="submit" disabled={pending} className="text-white">click me</button>
+            <br />
+            <Button className="font-s">Send</Button>
           </div>
-          <Button className="font-s">Send</Button>
         </form>
       </div>
     </div>

@@ -1,21 +1,16 @@
 /* eslint-disable react/jsx-key */
-import PostCard from "@/components/post/postCard";
-import { getPosts } from "@/lib/data";
-import axios from "axios";
-import { revalidatePath } from "next/cache";
-import { Key } from "react";
-// 
 
+import { AllPosts } from "@/components/post/allPosts";
+import { Suspense } from "react";
+import Loading from "./loading";
 
-
-const BlogPage = async () => {
-  const posts = await getPosts()
-  const author = "Bianca Bezerra"
+const BlogPage = () => {
   return (
-    <div className="flex flex-row gap-16 flex-wrap justify-center pt-10">
-      {posts.map((post: { title: string; body: string; id: string; }) => (
-        <PostCard post={post}/>
-      ))}
+    <div className="flex flex-col justify-center items-center content-center">
+      <h1 className="text-white text-4xl font-bold">All posts</h1>
+      <Suspense fallback={<Loading/>}>
+        <AllPosts />
+      </Suspense>
     </div>
   );
 };
