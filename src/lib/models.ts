@@ -13,6 +13,10 @@ interface IUser {
     name: string
 }
 
+interface IMensage {
+
+}
+
 const postSchema = new Schema<IPost>({
     title: {
         type: String,
@@ -48,5 +52,14 @@ const userSchema = new Schema<IUser>({
     }
 })
 
-export const User = model<IUser>("User",userSchema) || mongoose.models.User
-export const Post = model<IPost>("Post",postSchema) || mongoose.models.Post
+const mensageSchema = new Schema<IMensage>({
+  name: {
+    type: String
+  }
+  email:,
+  number: 
+  mensage: 
+});
+
+export const User = mongoose.models.User || mongoose.model<IUser>("User", userSchema);
+export const Post =  mongoose.models.Post || mongoose.model<IPost>("Post",postSchema)

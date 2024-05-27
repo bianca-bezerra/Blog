@@ -4,10 +4,10 @@ import PostCard from "./postCard";
 
 export const AllPosts = async () => {
   const posts = await getPosts();
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  
   return (
-    <div className="flex flex-row gap-16 flex-wrap justify-center pt-10">
-      {posts.map((post: { title: string; body: string; id: string }) => (
+    <div className="grid grid-cols-3 gap-20 pt-8">
+      {posts?.map((post) => (
         <PostCard key={post.id} post={post} />
       ))}
     </div>
